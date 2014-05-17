@@ -1,6 +1,6 @@
 PROFILE_FILE=profile.out
 COVERALLS_TOKEN=IVx3swS4YwoDCtOS5I1ETV6cY2R6ekGHV
-TMP_COVER_DIR=${TMP_COVER_DIR}
+TMP_COVER_DIR=tmp_cover
 
 build:
 	godep go build -v
