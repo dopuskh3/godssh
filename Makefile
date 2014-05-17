@@ -1,6 +1,5 @@
-PACKAGES="dssh"
-PROFILE_FILE="profile.out"
-COVERALLS_TOKEN="IVx3swS4YwoDCtOS5I1ETV6cY2R6ekGHV"
+PROFILE_FILE=profile.out
+COVERALLS_TOKEN=IVx3swS4YwoDCtOS5I1ETV6cY2R6ekGHV
 
 build:
 	godep go build -v
@@ -20,5 +19,5 @@ cover:
 	rm -rf cover_tmp
 
 coveralls: cover
-	goveralls -coverprofile=${PROFILE_FILE} ${COVERALLS_TOKEN}
+	goveralls -coverprofile=${PROFILE_FILE} -repotoken=${COVERALLS_TOKEN}
 
