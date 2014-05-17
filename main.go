@@ -12,15 +12,15 @@ func main() {
     log.Fatalln("usage: go-ssh <group> <cmd>")
   }
 
-  err := gos.LoadConfigFromFile("config.yml")
+  err := dssh.LoadConfigFromFile("config.yml")
   if err != nil {
     panic(err)
   }
-  clientConfig, err := gos.LoadClientConfig(os.Args[1])
+  clientConfig, err := dssh.LoadClientConfig(os.Args[1])
   if err != nil {
     panic(err)
   }
-  group, _ := gos.GetGroup(os.Args[1])
+  group, _ := dssh.GetGroup(os.Args[1])
   client, err := ssh.Dial("tcp", group.Hosts[0], clientConfig)
   if err != nil {
     panic("Failed to dial: " + err.Error())

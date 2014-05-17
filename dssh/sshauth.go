@@ -1,4 +1,4 @@
-package gos
+package dssh
 
 import (
   "code.google.com/p/go.crypto/ssh"

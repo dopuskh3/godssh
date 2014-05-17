@@ -1,4 +1,4 @@
-package gos
+package dssh
 
 import (
   "github.com/bmizerany/assert"
