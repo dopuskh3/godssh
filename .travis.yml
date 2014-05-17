@@ -8,8 +8,10 @@ before_install:
   - go get code.google.com/p/go.tools/cmd/cover
   - go get github.com/kr/godep
 
+install:
+  - export PATH=$PATH:$HOME/gopath/bin/
+
 script:
-  - export PATH=${GOPATH}/bin:${PATH}
   - make build coveralls
 
 
