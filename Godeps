@@ -1,0 +1,19 @@
+{
+	"ImportPath": "github.com/dopuskh3/godssh",
+	"GoVersion": "go1.2.1",
+	"Deps": [
+		{
+			"ImportPath": "code.google.com/p/go.crypto/ssh",
+			"Comment": "null-209",
+			"Rev": "23b39e4e860172e1983ded00a9d2f7e42b7683d0"
+		},
+		{
+			"ImportPath": "github.com/gokyle/sshkey",
+			"Rev": "d32a9ef172a1ec91efdf3ce26b240c946285bfe7"
+		},
+		{
+			"ImportPath": "gopkg.in/yaml.v1",
+			"Rev": "b0c168ac0cf9493da1f9bb76c34b26ffef940b4a"
+		}
+	]
+}
