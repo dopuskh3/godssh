@@ -6,8 +6,7 @@ before_install:
   - go get github.com/kr/godep
   - export PATH=$PATH:$HOME/gopath/bin/
   - godep go install code.google.com/p/go.tools/cmd/cover
-  - godep go install github.com/axw/gocov/gocov
-  - godep go install code.google.com/p/go.tools/cmd/cover
+  - godep go install github.com/axw/gocov
 
 script:
   - make build coveralls
