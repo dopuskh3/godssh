@@ -12,7 +12,7 @@ cover:
 	mkdir -p cover_tmp; \
 	for pkg in `go list ./...`; do \
 		echo $$pkg; \
-		godep go test -v $$pkg -coverprofile=$$(mktemp -p cover_tmp -t coverXXX.out) || exit 1 \
+		godep go test -v $$pkg -coverprofile=$$(mktemp -p cover_tmp -t coverXXX.out) || exit 1; \
 	done; \
 	echo "mode: set" > ${PROFILE_FILE}; \
 	cat tmp/cover*.out | grep -v "mode: set" >> ${PROFILE_FILE}; \
