@@ -1,5 +1,6 @@
 PROFILE_FILE=profile.out
 COVERALLS_TOKEN=IVx3swS4YwoDCtOS5I1ETV6cY2R6ekGHV
+TMP_COVER_DIR=${TMP_COVER_DIR}
 
 build:
 	godep go build -v
@@ -9,14 +10,14 @@ test:
 
 cover:
 	set -x; \
-	mkdir -p cover_tmp; \
+	mkdir -p ${TMP_COVER_DIR}; \
 	for pkg in `go list ./...`; do \
 		echo $$pkg; \
-		godep go test -v $$pkg -coverprofile=$$(mktemp -p cover_tmp -t coverXXX.out) || exit 1; \
+		godep go test -v $$pkg -coverprofile=$$(mktemp -p ${TMP_COVER_DIR} -t coverXXX.out) || exit 1; \
 	done; \
 	echo "mode: set" > ${PROFILE_FILE}; \
-	cat tmp/cover*.out | grep -v "mode: set" >> ${PROFILE_FILE}; \
-	rm -rf cover_tmp
+	cat ${TMP_COVER_DIR}/cover*.out | grep -v "mode: set" >> ${PROFILE_FILE} || exit 1; \
+	rm -rf ${TMP_COVER_DIR}
 
 coveralls: cover
 	goveralls -coverprofile=${PROFILE_FILE} -repotoken=${COVERALLS_TOKEN} || exit 1
