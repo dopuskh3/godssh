@@ -3,13 +3,11 @@ go:
   - 1.2
 
 before_install:
-  - go get code.google.com/p/go.tools/cmd/cover
-  - go get github.com/axw/gocov/gocov
-  - go get code.google.com/p/go.tools/cmd/cover
   - go get github.com/kr/godep
-
-install:
   - export PATH=$PATH:$HOME/gopath/bin/
+  - godep go get code.google.com/p/go.tools/cmd/cover
+  - godep go get github.com/axw/gocov/gocov
+  - godep go get code.google.com/p/go.tools/cmd/cover
 
 script:
   - make build coveralls
