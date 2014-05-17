@@ -1,7 +1,6 @@
 language: go
 go:
   - 1.2
-  - tip
 
 before_install:
   - go get code.google.com/p/go.tools/cmd/cover
@@ -10,6 +9,7 @@ before_install:
   - go get github.com/kr/godep
 
 script:
+  - export PATH=${GOPATH}/bin:${PATH}
   - make build coveralls
 
 
